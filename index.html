@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iyed Baassou | Coder & Competitive Programmer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-color: #111827;
+      --text-color: #f3f4f6;
+      --accent-color: #3b82f6;
+      --secondary-color: #6366f1;
+      --highlight-color: #10b981;
+      --card-bg: #1f2937;
+      --card-hover: #374151;
+      --bronze: #cd7f32;
+      --codeforces-color: rgba(247, 202, 24, 0.7);
+      --atcoder-color: #808080;
+      --leetcode-color: #1A365D;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Jetbrains Mono', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 1rem;
+      background-color: var(--card-bg);
+      color: white;
+      border-radius: 0 0 30px 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .profile-img img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.3);
+      object-fit: cover;
+    }
+        
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    
+    .intro-section {
+      display: flex;
+      align-items: center;
+      background-color: var(--card-bg);
+      padding: 3rem;
+      border-radius: 20px;
+      margin: 3rem 0;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    .intro-icon {
+      font-size: 4rem;
+      color: var(--accent-color);
+      margin-right: 2rem;
+    }
+    
+    .intro-text h2 {
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+    
+    .intro-text p {
+      font-size: 1.1rem;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin: 3rem 0 2rem;
+      font-size: 2.2rem;
+      color: var(--accent-color);
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    
+    .section-title i {
+      color: var(--accent-color);
+    }
+    
+    .skills-wrapper {
+      margin: 2rem 0;
+    }
+    
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    
+    .skill-card {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      background-color: var(--card-bg);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+      border: 2px solid var(--accent-color);
+    }
+    
+    .skill-card:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+    
+    .skill-card img {
+      width: 70%;
+      height: 70%;
+      font-size: 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s ease;
+    }
+    
+    .skill-card:hover img {
+      opacity: 0.2;
+    }
+    
+    .skill-info {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      background-color: rgba(31, 41, 55, 0.3);
+    }
+    
+    .skill-card:hover .skill-info {
+      opacity: 1;
+    }
+    
+    .skill-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent-color);
+    }
+    
+    .cp-section {
+      background-color: var(--card-bg);
+      padding: 0.2rem 2rem 3rem 2rem;
+      border-radius: 20px;
+      margin: 3rem 0;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    .medal-highlight {
+      background-color: var(--bronze);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+      font-weight: bold;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    }
+    
+    .profiles-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      margin-top: 2rem;
+    }
+    
+    .profile-link {
+      display: flex;
+      align-items: center;
+      width: 260px;
+      height: 70px;
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      color: #fff;
+      text-decoration: none;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+    
+    .profile-link:hover {
+      transform: translateY(-5px);
+    }
+    
+    .profile-link.codeforces {
+      background-color: var(--codeforces-color);
+    }
+    
+    .profile-link.atcoder {
+      background-color: var(--atcoder-color);
+    }
+    
+    .profile-link.leetcode {
+      background-color: var(--leetcode-color);
+    }
+    
+    .profile-link img {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 25%;
+      margin-left: 5%;
+    }
+        
+    .profile-name {
+      font-weight: bold;
+      font-size: 1.1rem;
+      flex-grow: 1;
+      text-align: center;
+    }
+    
+    .profile-popup-icon {
+      width: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+        
+    .cpp-icon-text {
+      font-family: monospace;
+      font-weight: bold;
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+    
+    footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 1rem;
+      margin-top: 3rem;
+      background-color: var(--card-bg);
+      color: white;
+      border-radius: 30px 30px 0 0;
+      text-align: center;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      width: 50px;
+      height: 50px;
+      background-color: var(--bg-color);
+      color: var(--accent-color);
+      border-radius: 50%;
+      font-size: 1.5rem;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      transform: translateY(-5px);
+      background-color: var(--accent-color);
+      color: var(--text-color);
+    }
+    
+    @media (max-width: 768px) {
+      .intro-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+      }
+      
+      .intro-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+      
+      .skills-container {
+        gap: 1rem;
+      }
+      
+      .skill-card {
+        width: 150px;
+        height: 150px;
+      }
+      
+      .profile-link {
+        width: 220px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="profile-img">
+      <img src="images/me.png" alt="iyed">
+    </div>
+    <h1>Iyed Baassou</h1>
+    <p class="subtitle">
+      <i class="fas fa-laptop-code"></i>
+      Coding Enthusiast & Competitive Programmer
+    </p>
+  </header>
+  
+  <div class="container">
+    <section class="intro-section">
+      <div class="intro-icon">
+        <i class="fas fa-code"></i>
+      </div>
+      <div class="intro-text">
+        <h2>Hello World!</h2>
+        <p>Welcome to my cozy corner of the web! I'm a passionate coder and competitive programmer who loves solving challenging problems.</p>
+      </div>
+    </section>
+    
+    <h2 class="section-title">
+      <i class="fas fa-code"></i>
+      Skills
+    </h2>
+    
+    <div class="skills-wrapper">
+      <div class="skills-container">
+        <div class="skill-card">
+          <img src="images/python.png">
+          <div class="skill-info">
+            <h3>Python</h3>
+          </div>
+        </div>
+        
+        <div class="skill-card">
+          <img src="images/cpp.png">
+          <div class="skill-info">
+            <h3>C++</h3>
+          </div>
+        </div>
+        
+        <div class="skill-card">
+          <img src="images/html.png">
+          <div class="skill-info">
+            <h3>HTML</h3>
+          </div>
+        </div>
+        
+        <div class="skill-card">
+          <img src="images/css.png">
+          <div class="skill-info">
+            <h3>CSS</h3>
+          </div>
+        </div>
+        
+        <div class="skill-card">
+          <img src="images/js.png">
+          <div class="skill-info">
+            <h3>JavaScript</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <section class="cp-section">
+      <h2 class="section-title">
+        <i class="fas fa-trophy"></i>
+        Competitive Programming
+      </h2>
+      
+      <div style="text-align: center;">
+        <div class="medal-highlight">
+          <i class="fas fa-medal"></i> Bronze Medal at NAOI 2025
+        </div>
+        
+        <div class="profiles-container">
+          <a href="https://codeforces.com/profile/iyedoo" class="profile-link codeforces">
+            <img src="images/codeforces.png">
+            <span class="profile-name">Codeforces</span>
+            <div class="profile-popup-icon">
+              <i class="fas fa-external-link-alt"></i>
+            </div>
+          </a>
+          
+          <a href="https://atcoder.jp/users/iyedoo" class="profile-link atcoder">
+            <img src="images/atcoder.png">
+            <span class="profile-name">AtCoder</span>
+            <div class="profile-popup-icon">
+              <i class="fas fa-external-link-alt"></i>
+            </div>
+          </a>
+          
+          <a href="https://leetcode.com/u/iyedoo/" class="profile-link leetcode">
+            <img src="images/leetcode.png">
+            <span class="profile-name">LeetCode</span>
+            <div class="profile-popup-icon">
+              <i class="fas fa-external-link-alt"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+  <footer>
+    <h3>Let's Connect!</h3>
+    <div class="social-links">
+      <a href="#" class="social-icon">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="#" class="social-icon">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="#" class="social-icon">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="#" class="social-icon">
+        <i class="far fa-envelope"></i>
+      </a>
+    </div>
+    <p>© 2025 Iyed Baassou | Made with <i class="fas fa-heart" style="color: #f43f5e;"></i> and code</p>
+  </footer>
+</body>
+</html>
