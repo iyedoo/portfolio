@@ -76,6 +76,176 @@
       opacity: 0;
       transform: translateY(20px);
     }
+
+      /* Floating shapes animation */
+    .floating-shapes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+    
+    header {
+      position: relative; /* Make sure header is positioned */
+    }
+    
+    .profile-img, h1, .subtitle {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .shape {
+      position: absolute;
+      opacity: 0.15;
+      animation-duration: 15s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+    
+    .circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: var(--accent-color);
+      top: 15%;
+      left: 10%;
+      animation-name: floatCircle;
+    }
+    
+    .triangle {
+      width: 0;
+      height: 0;
+      border-left: 35px solid transparent;
+      border-right: 35px solid transparent;
+      border-bottom: 60px solid var(--secondary-color);
+      top: 70%;
+      right: 15%;
+      animation-name: floatTriangle;
+    }
+    
+    .square {
+      width: 50px;
+      height: 50px;
+      background-color: var(--highlight-color);
+      top: 25%;
+      right: 20%;
+      transform: rotate(45deg);
+      animation-name: floatSquare;
+    }
+    
+    .x {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      top: 60%;
+      left: 15%;
+      animation-name: floatX;
+    }
+    
+    .x:before, .x:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 8px;
+      background-color: var(--accent-color);
+      top: 50%;
+      left: 0;
+      margin-top: -4px;
+    }
+    
+    .x:before {
+      transform: rotate(45deg);
+    }
+    
+    .x:after {
+      transform: rotate(-45deg);
+    }
+    
+    .donut {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 8px solid var(--secondary-color);
+      top: 40%;
+      left: 80%;
+      animation-name: floatDonut;
+    }
+    
+    @keyframes floatCircle {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(20px, 30px) rotate(90deg); }
+      50% { transform: translate(40px, 0) rotate(180deg); }
+      75% { transform: translate(20px, -30px) rotate(270deg); }
+      100% { transform: translate(0, 0) rotate(360deg); }
+    }
+    
+    @keyframes floatTriangle {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(-15px, 25px) rotate(90deg); }
+      50% { transform: translate(-30px, 0) rotate(180deg); }
+      75% { transform: translate(-15px, -25px) rotate(270deg); }
+      100% { transform: translate(0, 0) rotate(360deg); }
+    }
+    
+    @keyframes floatSquare {
+      0% { transform: translate(0, 0) rotate(45deg); }
+      25% { transform: translate(-20px, 15px) rotate(135deg); }
+      50% { transform: translate(-40px, 0) rotate(225deg); }
+      75% { transform: translate(-20px, -15px) rotate(315deg); }
+      100% { transform: translate(0, 0) rotate(405deg); }
+    }
+    
+    @keyframes floatX {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(25px, 15px) rotate(90deg); }
+      50% { transform: translate(50px, 0) rotate(180deg); }
+      75% { transform: translate(25px, -15px) rotate(270deg); }
+      100% { transform: translate(0, 0) rotate(360deg); }
+    }
+    
+    @keyframes floatDonut {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(-25px, 20px) rotate(90deg); }
+      50% { transform: translate(-50px, 0) rotate(180deg); }
+      75% { transform: translate(-25px, -20px) rotate(270deg); }
+      100% { transform: translate(0, 0) rotate(360deg); }
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .shape {
+        transform: scale(0.7);
+      }
+      
+      .circle {
+        top: 10%;
+        left: 5%;
+      }
+      
+      .triangle {
+        top: 60%;
+        right: 5%;
+      }
+      
+      .square {
+        top: 20%;
+        right: 10%;
+      }
+      
+      .x {
+        top: 70%;
+        left: 10%;
+      }
+      
+      .donut {
+        top: 30%;
+        left: 70%;
+      }
+    }
     
     /* Animation delay classes */
     .delay-100 { animation-delay: 0.1s; }
@@ -201,6 +371,87 @@
     
     .intro-text p {
       font-size: 1.1rem;
+    }
+
+    .about-section {
+      display: flex;
+      gap: 3rem;
+      background-color: var(--card-bg);
+      padding: 3rem;
+      border-radius: 20px;
+      margin: 3rem 0;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      align-items: center;
+    }
+
+    .about-image {
+      flex: 0 0 30%;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .about-image img:hover {
+      transform: scale(1.03);
+    }
+
+    .about-content {
+      flex: 1;
+    }
+
+    .about-content h2 {
+      color: var(--accent-color);
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .about-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem 1rem;
+    }
+
+    .about-item {
+      width: 47%;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .about-item i {
+      font-size: 1.5rem;
+      color: var(--accent-color);
+      margin-top: 0.5rem;
+    }
+
+    .about-item h3 {
+      margin-bottom: 0.3rem;
+      color: var(--secondary-color);
+    }
+
+    @media (max-width: 600px) {
+      .about-item {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 850px) {
+      .about-section {
+        flex-direction: column;
+        padding: 2rem;
+      }
+      
+      .about-image {
+        flex: 0 0 100%;
+        margin-bottom: 1.5rem;
+      }
     }
     
     .section-title {
@@ -566,7 +817,7 @@
     }
     
     /* Desktop notification position (bottom-right) */
-    @media (min-width: 769px) {
+    @media (min-width: 851px) {
       .notification {
         bottom: 20px;
         right: 20px;
@@ -574,7 +825,7 @@
     }
     
     /* Mobile notification position (top) */
-    @media (max-width: 768px) {
+    @media (max-width: 850px) {
       .notification {
         top: 20px;
         left: 50%;
@@ -619,6 +870,13 @@
 </head>
 <body>
   <header class="fade-in">
+    <div class="floating-shapes">
+      <div class="shape circle"></div>
+      <div class="shape triangle"></div>
+      <div class="shape square"></div>
+      <div class="shape x"></div>
+      <div class="shape donut"></div>
+    </div>
     <div class="profile-img scale-in">
       <img src="images/me.png" alt="iyed">
     </div>
@@ -637,6 +895,46 @@
       <div class="intro-text">
         <h2>Hello World!</h2>
         <p>Welcome to my cozy corner of the web! I'm a passionate coder and competitive programmer who loves solving challenging problems.</p>
+      </div>
+    </section>
+
+    <section class="about-section slide-up delay-600">
+      <div class="about-image">
+        <img src="images/about.png" alt="About Me">
+      </div>
+      <div class="about-content">
+        <h2><i class="fas fa-user"></i> About Me</h2>
+        <div class="about-info">
+          <div class="about-item">
+            <i class="fas fa-birthday-cake"></i>
+            <div>
+              <h3>Age</h3>
+              <p>16.5 years old</p>
+              <p>Birthday: <span style="color: yellow;">14/08/2008</span></p>
+            </div>
+          </div>
+          <div class="about-item">
+            <i class="fa-solid fa-map"></i>
+            <div>
+              <h3>Location</h3>
+              <p>🇩🇿<br>Jijel, Jijel, Algeria</p>
+            </div>
+          </div>
+          <div class="about-item">
+            <i class="fas fa-language"></i>
+            <div>
+              <h3>Languages</h3>
+              <p><span style="color: greenyellow;">Arabic</span> (Native)<br>English (Fluent)<br>French (Novice)</p>
+            </div>
+          </div>
+          <div class="about-item">
+            <i class="fas fa-graduation-cap"></i>
+            <div>
+              <h3>Education</h3>
+              <p>Kaoula Tounes High School, Jijel</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     
