@@ -540,6 +540,162 @@
       margin-bottom: 0.5rem;
       color: var(--accent-color);
     }
+
+    /* Timeline Section Styles */
+    .timeline-section {
+      background-color: var(--card-bg);
+      padding: 0.5rem 0 3rem 0;
+      border-radius: 20px;
+      margin: 3rem 0;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .timeline-container {
+      position: relative;
+      max-width: 1200px;
+      margin: 2rem auto;
+    }
+
+    .timeline-container::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: var(--accent-color);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+      border-radius: 3px;
+    }
+
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: slideUp 0.8s ease forwards;
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+
+    .timeline-content {
+      padding: 20px;
+      background-color: var(--bg-color);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+
+    .timeline-content:hover {
+      transform: translateY(-5px);
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      right: -10px;
+      top: 25px;
+      background-color: var(--bg-color);
+      transform: rotate(45deg);
+    }
+
+    .timeline-item:nth-child(even) .timeline-content::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      left: -10px;
+      top: 25px;
+      background-color: var(--bg-color);
+      transform: rotate(45deg);
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      right: -13px;
+      background-color: var(--accent-color);
+      top: 22px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .timeline-item:nth-child(even)::after {
+      left: -13px;
+    }
+
+    .timeline-date {
+      color: var(--highlight-color);
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-date {
+      justify-content: flex-start;
+    }
+
+    .timeline-title {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--accent-color);
+    }
+
+    .timeline-description {
+      font-size: 0.95rem;
+    }
+
+    /* Responsive timeline */
+    @media screen and (max-width: 850px) {
+      .timeline-container::after {
+        left: 31px;
+      }
+      
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+        left: 0 !important;
+        text-align: left !important;
+      }
+      
+      .timeline-item::after {
+        left: 18px !important;
+      }
+      
+      .timeline-item:nth-child(odd) .timeline-content::after {
+        left: -10px;
+        right: auto;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-date {
+        justify-content: flex-start;
+      }
+    }
+
+    /* Animation delays for timeline items */
+    .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+    .timeline-item:nth-child(2) { animation-delay: 0.3s; }
+    .timeline-item:nth-child(3) { animation-delay: 0.5s; }
+    .timeline-item:nth-child(4) { animation-delay: 0.7s; }
+    .timeline-item:nth-child(5) { animation-delay: 0.9s; }
     
     .cp-section {
       background-color: var(--card-bg);
@@ -636,7 +792,7 @@
     /* Projects Section Styles */
     .projects-section {
       background-color: var(--card-bg);
-      padding: 2rem;
+      padding: 1rem 3rem 3rem 3rem;
       border-radius: 20px;
       margin: 3rem 0;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
@@ -981,6 +1137,78 @@
         </div>
       </div>
     </div>
+
+    <section class="timeline-section slide-up delay-600">
+      <h2 class="section-title">
+        <i class="fas fa-history"></i>
+        My Journey
+      </h2>
+      
+      <div class="timeline-container">
+        <!-- Timeline Item 1 (Earliest) -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date"><i class="far fa-calendar"></i> October 2023</div>
+            <h3 class="timeline-title">Learned Web Development</h3>
+            <p class="timeline-description">Started learning HTML, CSS, and JavaScript, building simple web pages.</p>
+          </div>
+        </div>
+        
+        <!-- Timeline Item 2 -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date"><i class="far fa-calendar"></i> January 2024</div>
+            <h3 class="timeline-title">Learned Python</h3>
+            <p class="timeline-description">Mastered Python programming language fundamentals and started building applications.</p>
+          </div>
+        </div>
+        
+        <!-- Timeline Item 3 -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date"><i class="far fa-calendar"></i> May 2024</div>
+            <h3 class="timeline-title">First Functional Webpage</h3>
+            <p class="timeline-description">Built and deployed my first fully functional website using HTML, CSS, and JavaScript.</p>
+          </div>
+        </div>
+        
+        <!-- Timeline Item 4 -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date"><i class="far fa-calendar"></i> June 2024</div>
+            <h3 class="timeline-title">Learned Game Development</h3>
+            <p class="timeline-description">Started creating games and interactive applications using Python and Pygame.</p>
+          </div>
+        </div>
+        
+        <!-- Timeline Item 5 -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date"><i class="far fa-calendar"></i> September 2024</div>
+            <h3 class="timeline-title">Started Competitive Programming</h3>
+            <p class="timeline-description">Began my journey in competitive programming on Codeforces and AtCoder.</p>
+          </div>
+        </div>
+        
+        <!-- Timeline Item 6 -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date"><i class="far fa-calendar"></i> November 2024</div>
+            <h3 class="timeline-title">Learned C++</h3>
+            <p class="timeline-description">Started learning C++ for data structures and algorithms.</p>
+          </div>
+        </div>
+        
+        <!-- Timeline Item 7 (Latest) -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date"><i class="far fa-calendar"></i> April 2025</div>
+            <h3 class="timeline-title">Bronze Medal at NAOI</h3>
+            <p class="timeline-description">Won bronze medal at the North African Olympiad in Informatics, representing Algeria.</p>
+          </div>
+        </div>
+      </div>
+    </section>
     
     <!-- Projects Section -->
     <section class="projects-section slide-up">
